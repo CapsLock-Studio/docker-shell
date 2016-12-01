@@ -9,6 +9,11 @@ Just a shell makes world better.
 docker-shell REPO_NAME_YOU_LIKE [COMMAND]
 ```
 
+## Want use another unofficial dockerized shell?
+```sh
+docker-shell [-r repo_name] ...
+```
+
 ## Install
 ```sh
 sh install.sh
