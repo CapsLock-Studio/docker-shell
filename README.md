@@ -9,8 +9,6 @@ Once a day, I wanted to use some command from a package but I didn't like to ins
 ```sh
 docker run -i -t -v $(pwd):/folder-you-want -w folder-you-want repo-name command
 ```
-
-
 Gosh, why I have to type this god-liked long command every time?  
 It really sucks for me... so I create a new shell to complete it.
 
