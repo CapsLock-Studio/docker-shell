@@ -21,3 +21,8 @@ Like node.js, if you have a file named `sample.js`
 ```sh
 docker-shell node sample.js
 ```
+
+You can also use other tool in this repo, such as npm
+```sh
+docker-shell node npm install
+```
