@@ -39,11 +39,11 @@ if [[ "${content}" == *"RouteNotFound404Page__wrap___"* ]]
 then
   echo "Sorry, I cannot find any docker image on docker hub :("
 else
-  installed=$(docker run -t -i "${package}" which "${run}" > /dev/null 2>&1 && echo 1)
-  installed_guess=$(docker run -t -i "${package}" which "${guess}" > /dev/null 2>&1 && echo 1)
+  installed=$(docker run --rm -t -i "${package}" which "${run}" > /dev/null 2>&1 && echo 1)
+  installed_guess=$(docker run --rm -t -i "${package}" which "${guess}" > /dev/null 2>&1 && echo 1)
   if [[ -z "${installed}" ]] || [[ ! -z "${installed_guess}" ]]; then
     shift
   fi
   cmd="$*"
-  [ ! -z "${cmd}" ] && docker run -t -i -v "${based}":"/${temp}" -w "/${temp}" "${package}" ${cmd}
+  [ ! -z "${cmd}" ] && docker run --rm -t -i -v "${based}":"/${temp}" -w "/${temp}" "${package}" ${cmd}
 fi
