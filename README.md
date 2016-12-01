@@ -17,7 +17,7 @@ sh install.sh
 ## Example
 You can execute directly from any bin inside docker with your command.  
 
-Like node.js, if you have a file named `sample.js`
+Like node.js in `node` repo, if you have a file named `sample.js`
 ```sh
 docker-shell node sample.js
 ```
