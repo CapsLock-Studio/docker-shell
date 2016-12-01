@@ -4,6 +4,12 @@ Just a shell makes world better.
 ## Requirement
 * Accessible docker service
 
+## Purpose: Why I make this shell?
+```sh
+docker run -i -t -v $(pwd):/folder-you-want -w folder-you-want repo-name command
+```
+It really sucks for me... so I create a new shell to complete it.
+
 ## How to use
 ```sh
 docker-shell REPO_NAME_YOU_LIKE [COMMAND]
