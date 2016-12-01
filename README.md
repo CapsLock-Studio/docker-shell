@@ -12,22 +12,23 @@ docker run -i -t -v $(pwd):/folder-you-want -w folder-you-want repo-name command
 Gosh, why I have to type this god-liked long command every time?  
 It really sucks for me... so I create a new shell to complete it.
 
-## How to use
+## Bring dockered shell to you!
+### How to use
 ```sh
 docker-shell REPO_NAME_YOU_LIKE [COMMAND]
 ```
 
-## Want use another unofficial dockerized shell?
+### Want use another unofficial dockerized shell?
 ```sh
 docker-shell [-r repo_name] ...
 ```
 
-## Install
+### Install
 ```sh
 sh install.sh
 ```
 
-## Example
+### Example
 You can execute directly from any bin inside docker with your command.  
 
 Like node.js in `node` repo, if you have a file named `sample.js`
