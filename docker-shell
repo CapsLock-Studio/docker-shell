@@ -24,25 +24,26 @@ shift $((OPTIND-1))
 
 run=$1
 guess=$2
+temp=$(date +"%s")
 based=$(pwd)
-docker_hub=https://hub.docker.com/$owner/$run
-content=$(wget --no-check-certificate $docker_hub -q -O -)
+docker_hub="https://hub.docker.com/${owner}/${run}"
+content=$(wget --no-check-certificate "${docker_hub}" -q -O -)
 
 if [[ ! "$owner" == "_" ]]; then
-  package=$owner/$run
+  package="${owner}/${run}"
 else
-  package=$run
+  package="${run}"
 fi
 
-if [[ "$content" == *"RouteNotFound404Page__wrap___"* ]]
+if [[ "${content}" == *"RouteNotFound404Page__wrap___"* ]]
 then
   echo "Sorry, I cannot find any docker image on docker hub :("
 else
-  installed=$(docker run -t -i $package which $run > /dev/null 2>&1 && echo 1)
-  installed_guess=$(docker run -t -i $package which $guess > /dev/null 2>&1 && echo 1)
-  if [[ -z $installed ]] || [[ ! -z $installed_guess ]]; then
+  installed=$(docker run -t -i "${package}" which "${run}" > /dev/null 2>&1 && echo 1)
+  installed_guess=$(docker run -t -i "${package}" which "${guess}" > /dev/null 2>&1 && echo 1)
+  if [[ -z "${installed}" ]] || [[ ! -z "${installed_guess}" ]]; then
     shift
   fi
   cmd="$*"
-  [ ! -z "$cmd" ] && docker run -t -i -v $based:/docker-shell -w /docker-shell $package $cmd
+  [ ! -z "${cmd}" ] && docker run -t -i -v "${based}":"/${temp}" -w "/${temp}" "${package}" ${cmd}
 fi
