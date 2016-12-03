@@ -7,7 +7,7 @@ Just a shell makes world better.
 ## Purpose: Why I make this shell?
 Once a day, I wanted to use some command from a package but I didn't like to install them in my local machine, so I used docker to do this thing.
 ```sh
-docker run -i -t -v $(pwd):/folder-you-want -w folder-you-want repo-name command
+docker run --rm -i -t -v $(pwd):/folder-you-want -w folder-you-want repo-name command
 ```
 Gosh, why I have to type this god-liked long command every time?  
 It really sucks for me... so I create a new shell to complete it.
