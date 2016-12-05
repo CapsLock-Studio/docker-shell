@@ -56,7 +56,7 @@ else
     installed_not_passed=1
   fi
 
-  if [[ installed_not_passed == 1 ]]; then
+  if [[ "${installed_not_passed}" == 1 ]]; then
     shift
   else
     installed_guess=$(docker run --rm -t -i "${package}" which "${guess}" > /dev/null 2>&1 && echo 1)
